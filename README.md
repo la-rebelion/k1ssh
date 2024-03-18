@@ -2,7 +2,7 @@
 
 Welcome to the K1s Terminal project, a new and innovative way to simplify your Kubernetes experience. This project is designed to make Kubernetes more accessible, efficient, and enjoyable for developers of all skill levels.
 
-![K1s Terminal](https://k1s.sh/static/media/K1s-v0.2.0.fe77703c6ec49b1aae66.gif)
+<img src="https://k1s.sh/static/media/K1s-v0.2.0.fe77703c6ec49b1aae66.gif" width="600" alt="K1s Terminal" />
 
 ## What is K1s Terminal?
 
