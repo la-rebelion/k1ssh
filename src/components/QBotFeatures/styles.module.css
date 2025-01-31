@@ -9,3 +9,13 @@
   height: 200px;
   width: 200px;
 }
+
+/* no underline, no visited */
+.featureLink {
+  text-decoration: none;
+  color: inherit;  
+}
+/* no underline when hover */
+.featureLink:hover {
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import React from 'react';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -21,7 +22,8 @@ const FeatureList: FeatureItem[] = [
         Automated dependency management and security scanning for Kubernetes applications.
       </>
     ),
-    link: '/qbot/dependency-management',
+    // link: '/qbot/dependency-management',
+    link: '/docs/qbot/',
     tags: ['Dependency Management', 'Security Scanning', 'Dependency Resolution', 'Dependency Validation', 'Dependency Graph', 'Artifact Compatibility', 'Artifact Cleanup'],
   },
   {
@@ -32,9 +34,10 @@ const FeatureList: FeatureItem[] = [
         Multienvironment drift prevention and enforcement for Kubernetes applications. No more manual troubleshooting.
       </>
     ),
-    link: '/qbot/drift-prevention',
-    tags: ['Post Deployment Validation', 'Event-based Pipelines', 'Audit-as-a-Service', 
-      'Compliance', 'Secrets Management' ],
+    // link: '/qbot/drift-prevention',
+    link: '/docs/qbot/',
+    tags: ['Post Deployment Validation', 'Event-based Pipelines', 'Audit-as-a-Service',
+      'Compliance', 'Secrets Management'],
   },
   {
     title: 'Incident Management & Rollbacks',
@@ -44,7 +47,8 @@ const FeatureList: FeatureItem[] = [
         AI-driven incident debugging and rollbacks based on the last known good state of the application.
       </>
     ),
-    link: '/qbot/incident-management',
+    // link: '/qbot/incident-management',
+    link: '/docs/qbot/',
     tags: ['Incident Management', 'Rollbacks', 'AI-driven Debugging', 'Issue Simulatiors', 'Self-healing Test Framework', 'Automatic Root Cause Analyzer'],
   },
   {
@@ -55,22 +59,25 @@ const FeatureList: FeatureItem[] = [
         AI workflow automation for air-gapped environments to streamline artifacts transfers, including validation and dependency resolution.
       </>
     ),
-    link: '/qbot/airgap-automation',
+    // link: '/qbot/airgap-automation',
+    link: '/docs/qbot/',
     tags: ['Airgap Environment', 'Artifact Transfer', 'Validation', 'Dependency Resolution', 'Dependency Graph', 'Artifact Compatibility', 'Artifact Cleanup', 'Security-first Dependency', 'Dependency Updater'],
   },
 ];
 
-function Feature({title, Svg, img, description}: FeatureItem) {
+function Feature({ title, Svg, img, description, link }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
         {Svg && <Svg className={styles.featureSvg} role='img' />}
-        {img && <img src={img} alt={title} />} 
+        {img && <img src={img} alt={title} />}
       </div>
+        <Link to={link} className={styles.featureLink}>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+          <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
+        </Link>
     </div>
   );
 }
