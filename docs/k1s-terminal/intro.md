@@ -26,7 +26,7 @@ Kubernetes API and kubectl support several verbs that correspond to different ac
 
 These verbs are used in the context of Role-Based Access Control (RBAC) to define permissions for different roles. For example, a role might be allowed to get, list, and watch pods, but not create, update, patch, or delete them.
 
-K1sT implements these verbs in a user-friendly way, making it easy to interact with Kubernetes resources and manage your applications. In the [roadmap](/roadmap), we are planning to add more features to make the terminal even more powerful and user-friendly, keep an eye on the [release notes](/updates/k1s-terminal) for the latest updates.
+K1sT implements these verbs in a user-friendly way, making it easy to interact with Kubernetes resources and manage your applications. In the [roadmap](/docs/roadmap), we are planning to add more features to make the terminal even more powerful and user-friendly, keep an eye on the [release notes](/docs/updates/k1s-terminal) for the latest updates.
 
 <!-- parser
     .command('get <resource>')
