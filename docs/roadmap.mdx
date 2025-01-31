@@ -1,0 +1,155 @@
+---
+slug: /roadmap
+title: K1s Roadmap
+sidebar_label: Roadmap
+description: The roadmap is a list of features that we are planning to implement in the future
+  or the features that are WIP.
+keywords:
+  - roadmap
+---
+import HubSpotForm from '@site/src/components/HubSpotForm';
+
+K1s roadmap is a list of Kubernetes features that are planned to be implemented in the future and what features we are working with now.
+Keep in mind that the roadmap is not a promise to implement the features. The roadmap is subject to change, and the features may be removed or added at any time. Keep an eye on the roadmap to see what features we are working on.
+
+
+|Symbol|Description|
+|---|---|
+|✅|Done|
+|👷🏽‍|Under Construction|
+|⚓|Planned, coming next|
+|-|Not plan yet|
+|🚫|Not supported|
+
+:::tip Get Early Access!
+
+Get the early access to our Serverless Kubernetes platform and get the latest updates on the implementation progress.  
+<a href="https://go.rebelion.la/k1s-access">Register here</a>
+
+:::
+
+### K1s Serverless API Dashboard
+---
+
+|PATH|Status|get|create|describe|patch|delete|put|
+|---|---|---|---|---|---|---|-|
+|/api/|✅|✅|-|-|-|-|-|
+|/api/v1/|✅|✅|-|-|-|-|-|
+|/apis/|✅|✅|-|-|-|-|-|
+|/apis/apps|✅|✅|-|-|-|-|-|
+|/apis/apps/v1|⚓|⚓|-|-|-|-|-|
+|/api/v1/pods|✅|✅|-|-|-|-|-|
+|/api/v1/namespaces|✅|✅|✅|-|-|-|-|
+|/api/v1/namespaces/\{name\}|👷|✅|-|-|⚓|⚓|⚓|
+|/api/v1/namespaces/\{name\}/pods|👷|👷|⚓|-|-|⚓|-|
+
+The Kubernetes API is huge with 428 API endpoints (paths), 113 for `api` group and 310 for `apis` group endpoints! We are working on the API dashboard to make it easier to navigate the API endpoints and the status on each of these.
+
+## K1s Terminal Roadmap
+
+### `kubectl`
+
+<!-- Create the table based on Kubernetes RBAC rules:
+// https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+
+apiGroups: "" | "apps" | "batch" | "extensions" | "networking.k8s.io" | "storage.k8s.io" | "rbac.authorization.k8s.io" | "policy" | "autoscaling" | "coordination.k8s.io" | "scheduling.k8s.io" | "settings.k8s.io" | "authentication.k8s.io" | "authorization.k8s.io" | "apiextensions.k8s.io" | "apiregistration.k8s.io" | "apps.openshift.io" | "build.openshift.io" | "image.openshift.io" | "network.openshift.io" | "oauth.openshift.io" | "project.openshift.io" | "quota.openshift.io" | "route.openshift.io" | "security.openshift.io" | "template.openshift.io" | "user.openshift.io" | "authorization.openshift.io" | "build.pipelines.openshift.io" | "console.openshift.io" | "operator.openshift.io" | "operator.openshift
+
+API Group: Core | Apps | Batch | Extensions | Networking | Storage | RBAC | Policy | Autoscaling | Coordination | Scheduling | Settings | Authentication | Authorization | API Extensions | API Registration | Apps OpenShift | Build OpenShift | Image OpenShift | Network OpenShift | OAuth OpenShift | Project OpenShift | Quota OpenShift | Route OpenShift | Security OpenShift | Template OpenShift | User OpenShift | Authorization OpenShift | Build Pipelines OpenShift | Console OpenShift | Operator OpenShift | Operator OpenShift -->
+
+In summary, this roadmap is the list of features that we are planning to implement first. The roadmap is subject to change, and the features may be removed or added at any time. Keep an eye on the roadmap to see what features we are working on.
+
+```bash
+kubectl api-resources -owide | grep all
+```
+
+NAME|SHORTNAMES|APIVERSION|NAMESPACED|KIND|VERBS
+--|---|---|---|---|---
+pods|po|v1|true|Pod|create,delete,deletecollection,get,list,patch,update,watch|all
+replicationcontrollers|rc|v1|true|ReplicationController|create,delete,deletecollection,get,list,patch,update,watch|all
+services|svc|v1|true|Service|create,delete,deletecollection,get,list,patch,update,watch|all
+daemonsets|ds|apps/v1|true|DaemonSet|create,delete,deletecollection,get,list,patch,update,watch|all
+deployments|deploy|apps/v1|true|Deployment|create,delete,deletecollection,get,list,patch,update,watch|all
+replicasets|rs|apps/v1|true|ReplicaSet|create,delete,deletecollection,get,list,patch,update,watch|all
+statefulsets|sts|apps/v1|true|StatefulSet|create,delete,deletecollection,get,list,patch,update,watch|all
+horizontalpodautoscalers|hpa|autoscaling/v2|true|HorizontalPodAutoscaler|create,delete,deletecollection,get,list,patch,update,watch|all
+cronjobs|cj|batch/v1|true|CronJob|create,delete,deletecollection,get,list,patch,update,watch|all
+jobs|-|batch/v1|true|Job|create,delete,deletecollection,get,list,patch,update,watch|all
+
+#### Core API Group
+
+```bash
+kubectl api-resources --api-group='' -owide
+```
+
+|Resource|Kind|Status|get|list|watch|create|update|patch|delete|deletecollection|
+|---|---|---|---|---|---|---|---|---|---|-|
+|pods|Pod|👷|✅|-|-|-|-|-|-|-|
+|namespaces|Namespace|👷|✅|-|-|-|-|-|-|🚫|
+|configmaps|ConfigMap|-|-|-|-|-|-|-|-|-|
+|endpoints|Endpoints|-|-|-|-|-|-|-|-|-|
+|events|Event|-|-|-|-|-|-|-|-|-|
+|limitranges|LimitRange|-|-|-|-|-|-|-|-|-|
+|nodes|Node|-|-|-|-|-|-|-|-|-|
+|persistentvolumeclaims|PersistentVolumeClaim
+|persistentvolumes|PersistentVolume|-|-|-|-|-|-|-|-|-|
+|podtemplates|PodTemplate|-|-|-|-|-|-|-|-|-|
+|replicationcontrollers|ReplicationController|-|-|-|-|-|-|-|-|-|
+|resourcequotas|ResourceQuota|-|-|-|-|-|-|-|-|-|
+|secrets|-|-|-|-|-|-|-|-|-|-|
+|serviceaccounts|ServiceAccount|-|-|-|-|-|-|-|-|-|
+|services|Service|-|-|-|-|-|-|-|-|-|
+|bindings|-|-|🚫|🚫|🚫|-|🚫|🚫|🚫|🚫|
+|componentstatuses|ComponentStatus|-|-|-|🚫|🚫|🚫|🚫|🚫|🚫|
+
+
+#### API Groups within `all` flag
+
+Which resources are available in the `all` API group?
+
+```bash
+kubectl api-resources -owide | grep all
+```
+
+Only the following resources are available in the `all` API group that are NOT in the core API group:
+
+|Resource|Kind|Status|get|list|watch|create|update|patch|delete|deletecollection|
+|---|---|---|---|---|---|---|---|---|---|-|
+|replicationcontrollers|ReplicationController|-|-|-|-|-|-|-|-|-|
+|services|Service|-|-|-|-|-|-|-|-|-|
+|daemonsets|DaemonSet|-|-|-|-|-|-|-|-|-|
+|deployments|Deployment|-|-|-|-|-|-|-|-|-|
+|replicasets|ReplicaSet|-|-|-|-|-|-|-|-|-|
+|statefulsets|StatefulSet|-|-|-|-|-|-|-|-|-|
+|horizontalpodautoscalers|HorizontalPodAutoscaler|-|-|-|-|-|-|-|-|-|
+|cronjobs|CronJob|-|-|-|-|-|-|-|-|-|
+|jobs|Job|-|-|-|-|-|-|-|-|-|
+
+#### Plan based on Kubernetes API Verbs
+
+The `all` keyword in Kubernetes is a special keyword that represents all resources. When you use `kubectl` with `all`, it performs the operation on "all resources that it supports".
+
+For example, if you run `kubectl get all`, it will return all resources that it supports, such as pods, services, deployments, and so on.
+
+However, it's important to note that all does not truly select absolutely all resources in Kubernetes. It only selects **resources that are most commonly used by end-users** and are expected to be viewed together.
+
+Hence, it is worth to start the k1s' `kubectl` implementation of the resources based on the Kubernetes Resource and Verbs, irrespective of the API group.
+
+- [ ] `kubectl get {}` command
+- [ ] `kubectl create {}` command
+- [ ] `kubectl delete {}` command
+- [ ] `kubectl patch {}` command
+- [ ] `kubectl update {}` command
+- [ ] `kubectl watch {}` command
+
+Variants to consider:
+
+- [ ] `kubectl get {} --all-namespaces` command
+- [ ] `kubectl get {} [(-o|--output=)json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file|custom-columns|custom-columns-file|wide]
+(TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags] [options]` command
+- [ ] `kubectl delete ([-f FILENAME] | [-k DIRECTORY] | TYPE [(NAME | -l label | --all)]) [options]` command
+
+## Subscribe 
+
+Subscribe to our newsletter to get the latest updates on the implementation progress.
+
+<HubSpotForm/>

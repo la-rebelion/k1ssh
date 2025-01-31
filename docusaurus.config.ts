@@ -73,6 +73,16 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  plugins: [
+    [
+      // https://docusaurus.io/docs/blog#multiple-blogs
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'qbot',
+        routeBasePath: 'qbot',
+        path: './qbot',
+      }],
+  ],
 
   themeConfig: {
     // Replace with your project's social card
@@ -91,6 +101,7 @@ const config: Config = {
           label: 'Docs',
         },
         { href: 'https://rebelion.la', label: 'Blog', position: 'left'},
+        { to: '/qbot', label: 'QBot 🤖', position: 'right' },
         { to: '/airgap', label: 'Airgap', position: 'right' },
         {
           href: 'https://go.rebelion.la/sponsors',
