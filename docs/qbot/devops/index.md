@@ -1,5 +1,6 @@
 ---
 sidebar_label: 'For DevOps'
+sidebar_position: 1
 title: QBot, smart Kubepilot
 description: AI is here to democratize Kubernetes in air-gapped environments with smarter, faster, and more efficiently DevOps.
 ---

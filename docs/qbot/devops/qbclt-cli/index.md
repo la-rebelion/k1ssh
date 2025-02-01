@@ -1,13 +1,39 @@
 ---
+sidebar_position: 3
 sidebar_label: 'qbclt - QBot CLI'
-sidebar_position: 1
 ---
 
 # `qbclt` - QBot CLI
 
 `QBot control` (qbctl) is a CLI tool part of the [QBot project](https://k1s.sh/qbot), a bot to help developers and DevOps practitioners quickly scaffold new microservices, tools, and utilities AI supported. The CLI tool provides a set of commands to interact with the QBot SDK.
 
-## Actions
+## Installation
+
+To install the `qbclt` CLI, you can use either the binary or the `npm` package.
+
+```bash
+npm install -g @k1s/qbclt
+```
+
+Another option is to use the `npx`:
+
+```bash
+npx @k1s/qbclt [command] [options]
+```
+
+The binary is available for Linux, MacOS, and Windows, to install the binary, download the latest release executing the following command:
+
+```bash
+curl -L https://k1s.sh/qbclt | bash
+```
+
+## Usage
+
+```bash
+qbclt [command] [options]
+```
+
+### Commands
 
 - **init**: Scaffold a new project with a directory structure and configuration files aligned with a `helm` Chart and Kubernetes `kustomize` setup. The project is created with no files, only directories and configuration files, unless a template is specified.
   - **\<projectName\>**: The name of the project.

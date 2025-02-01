@@ -1,0 +1,12 @@
+label: 'For DevOps'
+position: 3
+link:
+  type: generated-index
+  description: AI for DevOps is here to democratize Kubernetes 
+    in air-gapped environments with smarter, faster, and more efficiently DevOps.
+  keywords:
+    - Kubernetes
+    - kubectl
+    - "'KX"
+  image: /img/docusaurus.png
+  slug: /qbot/devops/
